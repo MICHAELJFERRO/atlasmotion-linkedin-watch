@@ -1,7 +1,7 @@
 # Atlas LinkedIn → Slack
 
 A small, dependency-free Python bot that checks Atlas Motion's public, logged-out
-LinkedIn company page every 30 minutes and sends each new JSON-LD post to Slack.
+LinkedIn company page every five minutes and sends each new JSON-LD post to Slack.
 
 ## How it behaves
 
@@ -29,9 +29,9 @@ first normal run does not replay history.
    `send_test_alert` off for a no-op seeded run, or turn it on to send the latest
    visible post as a real test without changing state.
 
-Scheduled workflows run only from the default branch. GitHub schedules are not
-guaranteed to start at the exact minute, but missed or failed fetches cannot advance
-the state.
+Scheduled workflows run only from the default branch. The schedule is offset from
+the busy top of each hour. GitHub does not guarantee an exact start time, but missed
+or failed fetches cannot advance the state.
 
 ## Local checks
 
